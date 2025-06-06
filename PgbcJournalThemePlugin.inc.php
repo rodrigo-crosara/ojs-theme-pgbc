@@ -6,6 +6,7 @@
  * Copyright (c) 2024 PGBC/BCB
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2025-2025 Rodrigo Crosara
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PgbcJournalThemePlugin

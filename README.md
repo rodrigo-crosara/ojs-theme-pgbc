@@ -37,7 +37,7 @@ Siga estes passos para instalar o tema na sua instância OJS:
 
     ```bash
     cd /caminho/para/seu/ojs/plugins/themes/
-    git clone [https://github.com/rodrigo-crosara/ojs-theme-pgbc.git](https://github.com/rodrigo-crosara/ojs-theme-pgbc.git) pgbcJournalTheme
+    git clone [https://github.com/rodrigo-crosara/pgbcJournalTheme.git](https://github.com/rodrigo-crosara/pgbcJournalTheme.git) pgbcJournalTheme
     ```
     > **Nota:** É importante que o nome da pasta seja `pgbcJournalTheme`, pois o código do plugin refere-se a este nome.
 

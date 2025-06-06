@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE themePlugin SYSTEM "../../../lib/pkp/dtd/themePluginSettings.dtd">
+<!--
+ * plugins/themes/pgbcJournalTheme/settings.xml
+ *
+ * Copyright (c) 2024 PGBC/BCB
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * Configurações do tema.
+-->
+<themePlugin>
+    <!-- A tag <parent> foi removida do settings.xml, pois estamos a usar $this->setParent() no PHP -->
+    <name>PGBC Journal Theme</name> 
+    <description>Tema customizado para a Revista da PGBC (BCB) - V1.10 (Usando setParent no PHP).</description>
+</themePlugin>

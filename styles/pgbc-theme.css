@@ -1,0 +1,541 @@
+/**
+ * File: plugins/themes/pgbcJournalTheme/styles/pgbc-theme.css
+ */
+
+/*------------------------------------------------------------------
+[Índice]
+
+1. Estilos Globais & Variáveis (BCB)
+2. Barra Gov.br (Estilo Oficial Adaptado)
+3. Cabeçalho Principal do Site (OJS Header com estilo BCB)
+4. Navegação Principal (Estilo BCB)
+5. Sobrescritas de Estilos OJS (para alinhar com BCB)
+6. Rodapé (Estilo BCB)
+7. Sobrescritas do Bootstrap (se necessário)
+8. Classes Utilitárias (inspiradas no CSS BCB)
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Estilos Globais & Variáveis (BCB)]
+-------------------------------------------------------------------*/
+:root {
+    /* Cores Primárias e Secundárias do BCB (já definidas) */
+    --pgbc-color-primary: #025c75; 
+    --pgbc-color-primary-darker: #005c7a; 
+    --pgbc-color-secondary: #e6c57c; 
+    --pgbc-color-text-dark: #333; 
+    --pgbc-color-text-medium: #606060; /* Cor de corpo de texto principal do BCB */
+    --pgbc-color-text-light: #fff;
+    --pgbc-color-gov-bar-bg: #071D41;
+
+    /* Fontes Principais */
+    --pgbc-font-primary: 'Ubuntu', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* Fallback para Ubuntu */
+    --pgbc-font-secondary-display: 'Cormorant Garamond', serif; /* Para títulos especiais, se usado */
+    --pgbc-font-gov-bar: 'Raleway', Arial, Helvetica, sans-serif;
+
+    /* Paleta de Cores Estendida do BCB (com nomes descritivos) */
+    --bcb-color-brand-blue-dark: #025c75;    /* .color-1 / .font-color-1 */
+    --bcb-color-grey-medium: #606062;       /* .color-2 / .font-color-2 (Nosso --pgbc-color-text-medium) */
+    --bcb-color-maroon-deep: #47373a;       /* .color-3 / .font-color-3 */
+    --bcb-color-blue-grey: #2e4c59;         /* .color-4 / .font-color-4 */
+    --bcb-color-teal-deep: #077391;         /* .color-5 / .font-color-5 */
+    --bcb-color-teal-bright: #088694;       /* .color-6 / .font-color-6 (BCB .btn-secondary) */
+    --bcb-color-grey-warm: #736063;         /* .color-7 / .font-color-7 */
+    --bcb-color-blue-steel: #476f82;        /* .color-8 / .font-color-8 */
+    --bcb-color-teal-dark: #067078;         /* .color-9 / .font-color-9 */
+    --bcb-color-gold-light: #f8d48d;        /* .color-10 / .font-color-10 */
+    --bcb-color-gold-medium: #debe7f;       /* .color-11 / .font-color-11 (Nosso --pgbc-color-secondary é #e6c57c) */
+
+    --bcb-link-color: #3298d5; /* Cor de link geral do bcb.gov.br */
+}
+
+body {
+    font-family: var(--pgbc-font-primary) !important; 
+    font-weight: 300; /* Peso base do bcb.gov.br */
+    font-size: calc(15px + .1vw); /* Tamanho de fonte dinâmico do bcb.gov.br */
+    line-height: 1.5rem; /* Line-height do bcb.gov.br */
+    color: var(--pgbc-color-text-medium) !important; /* Cor de texto principal do BCB */
+    background-color: #fff; 
+    margin: 0; 
+}
+
+a {
+    color: var(--pgbc-color-primary); /* Manter nosso azul primário para links OJS */
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: var(--pgbc-color-primary-darker);
+    text-decoration: underline;
+}
+
+/* Cabeçalhos com fonte e cor BCB */
+h1, h2, h3, h4, h5, h6,
+.pkp_structure_page .page_title, 
+.obj_article_summary .title a, 
+.obj_issue_summary .title a
+ {
+    font-family: var(--pgbc-font-primary) !important; 
+    font-weight: 500 !important; /* Peso de heading do bcb.gov.br */
+    color: var(--pgbc-color-primary) !important; 
+    margin-bottom: 1rem; /* Consistente com bcb.gov.br */
+}
+
+/* Tamanhos de fonte para cabeçalhos inspirados no bcb.gov.br (ajustar conforme necessário para OJS) */
+h1, .pkp_structure_page .page_title { font-size: 2.2rem; margin-top: 1.5rem; } /* BCB usa 2.5rem mas pode ser grande para OJS */
+h2 { font-size: 1.8rem; margin-top: 1.25rem; }
+h3 { font-size: 1.5rem; margin-top: 1rem; }
+h4 { font-size: 1.3rem; }
+h5 { font-size: 1.15rem; }
+h6 { font-size: 1rem; text-transform: uppercase; } /* BCB usa uppercase para h6 */
+
+.cormorant { /* Classe utilitária se quisermos usar Cormorant Garamond */
+    font-family: var(--pgbc-font-secondary-display) !important;
+    font-weight: 600; /* Exemplo de peso para Cormorant */
+}
+
+/*------------------------------------------------------------------
+[2. Barra Gov.br (Estilo Oficial Adaptado)]
+-------------------------------------------------------------------*/
+#barra-brasil div, #barra-brasil a, #barra-brasil ul, #barra-brasil li { 
+    margin:0;
+    padding:0;
+    font-size:100%; 
+    font-family:inherit; 
+    vertical-align:baseline;
+}
+#barra-brasil ul{
+    list-style:none;
+}
+#barra-brasil{
+    background-color: var(--pgbc-color-gov-bar-bg); 
+    box-sizing:content-box; 
+    display:flex;
+    flex-direction:column-reverse; 
+    align-items:center;
+    font-size:1rem; 
+    font-family: var(--pgbc-font-gov-bar); 
+}
+#barra-brasil .conteudo-barra-brasil{
+    height:40px;
+    width:95%; 
+    max-width:1150px; 
+    margin:0 auto; 
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:space-between;
+}
+#barra-brasil .pic-gov{
+    background-image:url("data:image/svg+xml,%3Csvg%20width%3D%2250%22%20height%3D%2219%22%20version%3D%221.1%22%20viewBox%3D%220%200%2019%2050%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20transform%3D%22matrix%28.23%200%200%20.23%20-153%20-147%29%22%3E%3Cg%20transform%3D%22matrix%281.3%200%200%201.3%20-200%20-209%29%22%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22m576%20765c0%2034-17%2046-50%2046-14%200-25-2.9-32-5.3l1.4-23c8.8%204.3%2016%206.9%2028%206.9%2017%200%2026-7.9%2026-24v-4.5h-.32c-6.9%209.8-17%2014-28%2014-23%200-37-17-37-42%200-25%2012-44%2038-44%2012%200%2022%206.8%2028%2017h.32v-15h26v74m-46-12c10%200%2018-8.7%2018-22%200-9.3-5.5-20-18-20-11%200-16%209.5-16%2021%200%2013%207.7%2020%2016%2020z%22%2F%3E%3Cpath%20d%3D%22m662%20686h28l22%2062%2022-62h28l-35%2089h-31l-34-89%22%2F%3E%3Cpath%20d%3D%22m576%20732c0-28%2021-44%2049-44s49%2016%2049%2044c0%2028-21%2044-49%2044-28%200-49-16-49-44m68%200c0-13-5.5-24-19-24s-19%2011-19%2024c0%2012%205.5%2024%2019%2024s19-11%2019-24z%22%2F%3E%3Cpath%20d%3D%22m760%20762c0%207.6-6.2%2014-14%2014-7.6%200-14-6.2-14-14%200-7.6%206.2-14%2014-14%207.6%200%2014%206.2%2014%2014z%22%2F%3E%3Cpath%20d%3D%22m762%20654h29v48h.32c7.4-9.3%2017-13%2029-13%2023%200%2036%2022%2036%2042%200%2025-13%2045-38%2045-13%200-25-7.6-29-17h-.32v15h-27v-121m47%2057c-11%200-18%209.3-18%2022%200%2012%208%2021%2018%2021%2011%200%2018-9.2%2018-22%200-11-6.3-21-18-21z%22%2F%3E%3Cpath%20d%3D%22m916%20714c-3.2-.97-6.4-.97-9.8-.97-14%200-21%209.8-21%2026v35h-29v-84h26v15h.32c5-11%2012-17%2025-17%203.4%200%206.9.48%209.8.96l-1.4%2024z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    display:block;
+    height:19px;
+    min-width:50px;
+    margin-right:10px;
+    line-height:0;
+    font-size:0; 
+    color:transparent; 
+    text-indent: -9999px; 
+}
+#barra-brasil .conteudo-barra-brasil nav{
+    overflow-x:auto; 
+}
+#barra-brasil .conteudo-barra-brasil nav ul{ 
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    width:auto; 
+    max-width:none; 
+}
+#barra-brasil .conteudo-barra-brasil nav ul li.list-item{ 
+    flex-shrink:0;
+}
+#barra-brasil .conteudo-barra-brasil nav ul li.espacador{ 
+    height:20px;
+    width:1px;
+    border-right:1px solid rgba(151,151,151,0.3);
+    margin:0 7px 0 20px; 
+}
+#barra-brasil a{ 
+    text-decoration:none;
+    color: var(--pgbc-color-text-light); 
+    font-weight:bold; 
+    font-size:0.7em; 
+    /* font-family já definido em #barra-brasil */
+    text-transform:uppercase;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-in-out;
+}
+#barra-brasil .conteudo-barra-brasil nav ul li a.link-externo-barra::before{ 
+    content:"";
+    display:inline-block;
+    width:11px;
+    height:10px;
+    margin-right:6px;
+    background-image:url("data:image/svg+xml,%3Csvg%20width%3D%2211%22%20height%3D%2210%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M10.174.169l-.003%204.002L6.173.173z%22%2F%3E%3Cpath%20d%3D%22M4%204.51L7.91.6l1.768%201.768-3.91%203.91zM0%200h3.5v2.5H0z%22%2F%3E%3Cpath%20d%3D%22M0%202h2.5v5H0zM7.5%206H10v3H7.5z%22%2F%3E%3Cpath%20d%3D%22M0%207h10v2.5H0z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    opacity:0;
+    transition-property:all;
+    transition-duration:0.1s;
+    transition-timing-function:ease-in-out;
+}
+#barra-brasil .conteudo-barra-brasil nav ul:hover li:not(:hover)>a{ 
+    opacity:0.3;
+}
+#barra-brasil .conteudo-barra-brasil nav ul li a:hover{ 
+    opacity:1;
+}
+#barra-brasil .conteudo-barra-brasil nav ul li a.link-externo-barra:hover::before{ 
+    opacity:1;
+}
+
+.conteudo-escondido{
+    display:block; background:transparent; background-image:none; border:none;
+    height:0.1em; overflow:hidden; padding:0; margin:-0.1em 0 0 -0.1em; width:1px
+}
+
+@media only screen and (max-width: 600px){
+    /* Adicionar estilos responsivos para a barra se necessário */
+}
+
+
+/*------------------------------------------------------------------
+[3. Cabeçalho Principal do Site (OJS Header com estilo BCB)]
+-------------------------------------------------------------------*/
+header.pkp_structure_head {
+    background-color: #fff;
+    border-bottom: 1px solid var(--pgbc-color-secondary);
+}
+
+header.pkp_structure_head .pkp_head_wrapper {
+    margin: 0 auto;
+}
+
+header.pkp_structure_head .pkp_site_name_wrapper .pkp_site_name a,
+header.pkp_structure_head .pkp_site_name_wrapper .pkp_site_name span { 
+    font-family: var(--pgbc-font-primary) !important;
+    color: var(--pgbc-color-primary) !important; 
+    font-size: 1.75rem; 
+    font-weight: 500; /* BCB usa 500 para H1-H6 */
+    text-decoration: none;
+    text-transform: uppercase;
+}
+    
+header.pkp_structure_head .pkp_site_name_wrapper .pkp_site_name img.pgbc-journal-logo {
+    max-height: 60px; 
+    width: auto;
+    vertical-align: middle; 
+}
+
+/*------------------------------------------------------------------
+[4. Navegação Principal (Estilo BCB)]
+-------------------------------------------------------------------*/
+nav.pkp_navigation_primary ul.pkp_nav_list li a {
+    font-family: var(--pgbc-font-primary) !important;
+    color: var(--pgbc-color-text-light) !important; 
+    padding: 0.75rem 1rem; 
+    font-weight: 500; /* BCB usa 500 para navigation */
+    border-radius: 4px; 
+    transition: background-color 0.2s ease-in-out;
+}
+
+nav.pkp_navigation_primary ul.pkp_nav_list li a:hover,
+nav.pkp_navigation_primary ul.pkp_nav_list li.is_current a { 
+    background-color: var(--pgbc-color-primary-darker) !important; 
+    color: var(--pgbc-color-text-light) !important;
+}
+
+
+/*------------------------------------------------------------------
+[5. Sobrescritas de Estilos OJS (para alinhar com BCB)]
+-------------------------------------------------------------------*/
+.pkp_button {
+    background-color: var(--pgbc-color-secondary) !important;
+    border: 1px solid var(--pgbc-color-secondary) !important;
+    color: var(--pgbc-color-primary) !important; 
+    font-weight: 500 !important; /* Alinhar com peso de botões BCB */
+    font-family: var(--pgbc-font-primary) !important;
+    padding: 0.375rem 0.75rem !important; /* Padrão Bootstrap 4/5 */
+    border-radius: .25rem !important; /* Padrão Bootstrap 4/5 */
+}
+.pkp_button:hover, .pkp_button:focus {
+    background-color: #cca75f !important; 
+    border-color: #cca75f !important;
+    color: var(--pgbc-color-primary) !important;
+}
+
+.cmp_pagination a {
+    color: var(--pgbc-color-primary) !important;
+}
+.cmp_pagination strong { /* Paginação atual */
+    color: var(--pgbc-color-text-dark) !important;
+    background-color: var(--pgbc-color-secondary) !important; /* Destaque dourado */
+    border-color: var(--pgbc-color-secondary) !important;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+}
+
+/*------------------------------------------------------------------
+[6. Rodapé (Estilo BCB)]
+-------------------------------------------------------------------*/
+.pkp_structure_footer_wrapper {
+    position: relative; /* Necessário para posicionar os pseudo-elementos */
+    font-size: .8rem;
+    background-color: #fff; /* Cor de fundo principal do rodapé BCB */
+    margin-top: 2rem;
+    padding: 0 !important; /* Remover padding padrão para controlar com o .container */
+    color: var(--pgbc-color-text-medium) !important;
+    border: none !important; /* Removemos a borda dourada antiga */
+}
+
+.pkp_structure_footer_wrapper .container {
+    position: relative;
+    border-right: 1px solid #e9ecef;
+    border-top: 1px solid #e9ecef;
+    /* Classes de flex do Bootstrap (.d-lg-flex) já cuidam do layout */
+}
+
+/* Efeito de "canto cortado" no container do rodapé */
+.pkp_structure_footer_wrapper .container:after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-top: 50px solid #fff; /* A cor deve corresponder ao fundo da página (body) */
+    border-left: 50px solid transparent;
+    z-index: 1;
+}
+
+/* Linha diagonal decorativa */
+.pkp_structure_footer_wrapper .line {
+    display: block;
+    width: 0;
+    height: 70px;
+    border-right: 1px solid #e9ecef;
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 24px;
+    top: -11px;
+    z-index: 2;
+}
+
+.missao {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.selo-qualis {
+    display: block;
+    float: left;
+    margin: 7px 24px 7px 0;
+    background-image: url(../img/selo-qualis-b1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Texto da missão */
+.pkp_structure_footer_wrapper .missao {
+    max-width: 550px;
+    font-style: italic;
+    color: var(--pgbc-color-primary); /* Azul primário, como no site do BCB */
+    font-size: .9rem;
+}
+
+.pkp_structure_footer_wrapper .info {
+    font-size: .8rem;
+}
+
+.pkp_structure_footer_wrapper ul {
+    margin-bottom: 0.5rem; /* Um pouco de espaço entre as listas */
+}
+
+/* Adiciona o separador "|" entre os itens da lista */
+.pkp_structure_footer_wrapper li:not(:last-child):after {
+    content: "|";
+    display: inline-block;
+    margin-left: 7px;
+    color: #ccc;
+}
+
+/* Remove o separador do último item da segunda lista para o item OJS */
+.pkp_structure_footer_wrapper .info ul:last-of-type li:nth-last-child(2):after {
+    content: "|";
+}
+
+.pkp_structure_footer_wrapper .info ul:last-of-type li:last-of-type:after {
+    content: ""; /* Garante que o último item (branding OJS) não tenha separador */
+}
+
+
+.pkp_structure_footer_wrapper a {
+    color: var(--bcb-link-color) !important; /* Cor de link padrão do BCB */
+    text-decoration: none !important;
+}
+
+.pkp_structure_footer_wrapper a:hover {
+    color: var(--pgbc-color-primary) !important;
+    text-decoration: underline !important;
+}
+
+/* Garante que a div .pr-5 usada no template funcione */
+.pr-5 {
+    padding-right: 3rem !important;
+}
+
+/*------------------------------------------------------------------
+[7. Sobrescritas do Bootstrap (se necessário)]
+-------------------------------------------------------------------*/
+.btn-primary { 
+    background-color: var(--pgbc-color-primary) !important; /* BCB usa seu azul primário para .btn-primary */
+    border-color: var(--pgbc-color-primary) !important;
+    color: var(--pgbc-color-text-light) !important; 
+    font-weight: 500; /* Consistente com outros botões */
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--pgbc-color-primary-darker) !important; 
+    border-color: var(--pgbc-color-primary-darker) !important;
+    color: var(--pgbc-color-text-light) !important;
+}
+/* Se usarmos .btn-secondary, podemos alinhá-lo com --bcb-color-teal-bright */
+.btn-secondary {
+    background-color: var(--bcb-color-teal-bright) !important;
+    border-color: var(--bcb-color-teal-bright) !important;
+    color: var(--pgbc-color-text-light) !important;
+    font-weight: 500;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #077391 !important; /* Um tom mais escuro de --bcb-color-teal-bright */
+    border-color: #077391 !important;
+    color: var(--pgbc-color-text-light) !important;
+}
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+/*------------------------------------------------------------------
+[8. Classes Utilitárias (inspiradas no CSS BCB)]
+-------------------------------------------------------------------*/
+.font-color-bcb-primary { color: var(--pgbc-color-primary) !important; }
+.font-color-bcb-secondary { color: var(--pgbc-color-secondary) !important; }
+.font-color-bcb-text-medium { color: var(--pgbc-color-text-medium) !important; }
+.font-color-bcb-gold-light { color: var(--bcb-color-gold-light) !important; }
+
+/* Adicionar mais conforme necessário */
+
+.bg-bcb-primary { background-color: var(--pgbc-color-primary) !important; }
+.bg-bcb-secondary { background-color: var(--pgbc-color-secondary) !important; }
+
+/* Adicionar mais conforme necessário */
+
+.pkp_site_nav_toggle {
+    background-color: var(--pgbc-color-secondary) !important;
+}
+
+@media (min-width: 992px) {
+
+    .pkp_site_name .is_text {
+        display: block;
+        width: 190px;
+        background-image: url(../img/logo-pgbc-60.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+        top: 9px;
+        z-index: 10;
+    }
+
+    .pkp_navigation_primary_row {
+        background-color: #f8f9fb;
+        border-top: 1px solid #dcddde;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 60px;
+    }
+    .pkp_site_name {
+        text-align: center;
+    }
+    .pkp_navigation_primary:before {
+        content: "";
+        display: block;
+        width: 283px;
+        height: 2.4rem;
+        background: #fff url(../img/bg_nav_center.bcab5a07188a54c8d7f2.jpg) no-repeat bottom;
+        position: absolute;
+        top: -1px;
+        left: calc(50% - 150px);
+    }
+    .pkp_head_wrapper {
+        padding-top: 0.9rem;
+    }
+    .pkp_navigation_primary>li>a, a.pkp_search.pkp_search_desktop {
+        color: #005c7a !important;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.1rem;
+        height: 58px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        text-decoration: none;
+        position: relative;
+        white-space: normal;
+        margin: 0 17px !important;
+    }
+    .pkp_navigation_primary>li>a:hover, a.pkp_search.pkp_search_desktop:hover {
+        background: #fff;
+    }
+    .pkp_navigation_user.pkp_navigation_user li {
+        border-bottom: 1px dotted #025c75;
+        background: hsla(0, 0%, 100%, .8);
+        text-transform: uppercase;
+    }
+    .pkp_navigation_user a {
+        color: #025c75 !important;
+    }
+    .pkp_site_nav_menu {
+        background: transparent;
+    }
+    .selo-qualis { width: 90px; height: 51px; }
+}
+
+@media (max-width: 992px) {
+    .pkp_site_nav_menu {
+        background: var(--pgbc-color-primary);
+    }
+    .selo-qualis { width: 200px; height: 51px; }
+}
+
+.pkp_navigation_search_wrapper span {
+    font-size: 30px;
+}
+
+.cmp_button, .cmp_form .buttons button, .page_lost_password .buttons button, .page_search .submit button, .block_make_submission a {
+    color: var(--pgbc-font-primary) !important;
+}
